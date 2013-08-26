@@ -1,0 +1,48 @@
+@import "reset"
+
+
+$background: rgb(206, 227, 248)
+
+.cf:before 
+  content: " " /* 1 */
+  display: table /* 2 */
+
+.cf:after 
+  @extend .cf:before
+  clear: both
+
+html
+  height: 100%
+
+body
+  background-color: $background
+  height: 100%
+  text-align: center
+
+#wrapper
+  height: 100%
+#panel
+  float: left
+  display: inline-block
+  height: 100%
+  width: 15%
+  input
+    width: 100%
+    font-size: 1em
+    display: block
+  #input
+    font-family: Helvetica
+    #range
+      display: inline-block
+    width: 90%
+    display: inline-block
+    margin: 10% auto 0 auto
+#map-canvas
+  display: inline-block
+  height: 100%
+  width: 85%
+
+
+
+
+
