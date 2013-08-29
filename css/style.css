@@ -55,94 +55,94 @@ table {
   border-spacing: 0;
 }
 
-/* line 6, ../sass/style.sass */
+/* line 8, ../sass/style.sass */
 .cf:before, .cf:after {
   content: " ";
   display: table;
 }
 
-/* line 10, ../sass/style.sass */
+/* line 12, ../sass/style.sass */
 .cf:after {
   clear: both;
 }
 
-/* line 14, ../sass/style.sass */
+/* line 16, ../sass/style.sass */
 html {
   height: 100%;
 }
 
-/* line 17, ../sass/style.sass */
+/* line 19, ../sass/style.sass */
 body {
   background-color: #cee3f8;
   height: 100%;
   text-align: center;
 }
 
-/* line 22, ../sass/style.sass */
+/* line 24, ../sass/style.sass */
 #wrapper {
   height: 100%;
 }
 
-/* line 24, ../sass/style.sass */
+/* line 26, ../sass/style.sass */
 #panel {
   float: left;
   display: inline-block;
   height: 100%;
   width: 15%;
 }
-/* line 29, ../sass/style.sass */
+/* line 31, ../sass/style.sass */
 #panel input {
   width: 100%;
   font-size: 1em;
   display: block;
 }
-/* line 33, ../sass/style.sass */
+/* line 35, ../sass/style.sass */
 #panel #fieldbox {
   font-family: Helvetica;
   width: 90%;
   display: inline-block;
   margin: 10% auto 0 auto;
 }
-/* line 38, ../sass/style.sass */
+/* line 40, ../sass/style.sass */
 #panel #fieldbox #transit {
   padding: 1em 0;
 }
-/* line 40, ../sass/style.sass */
+/* line 42, ../sass/style.sass */
 #panel #fieldbox #transit .trans {
   display: inline-block;
   width: 20%;
 }
-/* line 43, ../sass/style.sass */
+/* line 45, ../sass/style.sass */
 #panel #fieldbox #transit span {
   display: inline-block;
   font-size: 0.75em;
   width: 23%;
 }
-/* line 47, ../sass/style.sass */
+/* line 49, ../sass/style.sass */
 #panel #fieldbox .ticks {
   width: 20%;
   font-size: 0.75em;
   display: inline-block;
 }
-/* line 51, ../sass/style.sass */
+/* line 53, ../sass/style.sass */
 #panel #check-grid {
   display: inline-block;
   width: 100%;
   margin: 0 auto;
 }
-/* line 55, ../sass/style.sass */
+/* line 57, ../sass/style.sass */
 #panel #check-grid .checks {
   width: 50%;
   float: left;
   text-align: left;
 }
-/* line 59, ../sass/style.sass */
+/* line 61, ../sass/style.sass */
 #panel #check-grid .checks input {
   display: inline-block;
   width: inherit;
 }
 
-/* line 64, ../sass/style.sass */
+/* line 66, ../sass/style.sass */
 #map-canvas {
   display: inline-block;
   height: 100%;

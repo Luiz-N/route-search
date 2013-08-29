@@ -111,14 +111,14 @@ function createMarkers(results, status) {
       markers.push(marker);
 
       // console.log(this.marker);
-      self = this.marker
-      pointers[i] = this.marker;
+      // self = this.marker
+      // pointers[i] = this.marker;
 
-        google.maps.event.addListener(pointers[i], 'click', function() {
+        google.maps.event.addListener(marker, 'click', function() {
           console.log(pointers[i]);
           console.log(point);
           
-          Places.getDetails(this.point, function(result, status) {
+          Places.getDetails(point, function(result, status) {
             if (status != google.maps.places.PlacesServiceStatus.OK) {
             alert(status);
             return;
