@@ -15,16 +15,59 @@
   <div id ="wrapper">
 
     <div id="panel">
-      <div id="input">
+      <div id="fieldbox">
         <!-- <input id="address" type="textbox" value="Chicago, IL">
         <input type="button" value="Locate" onclick="codeAddress()"> -->
-
+        <p>Start</p>
         <input id="start" type="textbox" placeholder="Start" value="924 W Fullerton Chicago">
+        <p>End</p>
         <input id="end" type="textbox" placeholder="End" value="University of Illinois at Chicago">
+      <div id="transit">
+        <input checked class = "trans" type="radio" name="group1" value=DRIVING>
+        <input class = "trans" type="radio" name="group1" value=TRANSIT>
+        <input class = "trans" type="radio" name="group1" value=WALKING>
+        <input class = "trans" type="radio" name="group1" value=BICYCLING>
+        <span>Car</span>
+        <span>Transit</span>
+        <span>Walk</span>
+        <span>Bike</span>
+      </div>
+
       
         <span>Select a radius along your route to search.</span>
         <input id ='slider' type="range" min="400" max="1600" value="800" step="400" />
-        <span id="range">800</span>
+        <!-- <span class="ticks">meters</span> -->
+        <span class="ticks">400</span>
+        <span class="ticks">800</span>
+        <span class="ticks">1200</span>
+        <span class="ticks">1600</span>
+        <!-- <span class="ticks">miles</span> -->
+        <span class="ticks">.25</span>
+        <span class="ticks">.5</span>
+        <span class="ticks">.75</span>
+        <span class="ticks">1</span>
+    <div id="check-grid" class="cf">
+      <ul class="checks">
+        <li><input type="checkbox" name="place" value="bar" /><label>bar</label></li>
+        <li><input type="checkbox" name="place" value="restaurant" /><label>restaurant</label></li>
+        <li><input type="checkbox" name="place" value="cafe" /><label>cafe</label></li>
+        <li><input type="checkbox" name="place" value="atm" /><label>atm</label></li>
+        <li><input type="checkbox" name="place" value="bank" /><label>bank</label></li>
+        <li><input type="checkbox" name="place" value="liquor_store" /><label>liqour store</label></li>
+        <li><input type="checkbox" name="place" value="night_club" /><label>night club</label></li>
+        <li><input type="checkbox" name="place" value="subway_station" /><label>subway stop</label></li>
+      </ul>
+      <ul class="checks">
+        <li><input type="checkbox" name="place" value="gas_station" /><label>gas station</label></li>
+        <li><input type="checkbox" name="place" value="gym" /><label>gym</label></li>
+        <li><input type="checkbox" name="place" value="food" /><label>food</label></li>
+        <li><input type="checkbox" name="place" value="grocery_or_supermarket" /><label>grocery</label></li>
+        <li><input type="checkbox" name="place" value="convenience_store" /><label>corner store</label></li>
+        <li><input type="checkbox" name="place" value="post_office" /><label>post office</label></li>
+        <li><input type="checkbox" name="place" value="pharmacy" /><label>pharmacy</label></li>
+        <li><input type="checkbox" name="place" value="bus_station" /><label>bus stop</label></li>
+      </ul>
+    </div>
         <input type="button" value="Get Directions" onclick="newRoute()">
       </div>
     </div>

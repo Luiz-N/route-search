@@ -30,17 +30,42 @@ body
     width: 100%
     font-size: 1em
     display: block
-  #input
+  #fieldbox
     font-family: Helvetica
-    #range
-      display: inline-block
     width: 90%
     display: inline-block
     margin: 10% auto 0 auto
+    #transit
+      padding: 1em 0
+      .trans
+        display: inline-block
+        width: 20%
+      span
+        display: inline-block
+        font-size: .75em
+        width: 23%
+    .ticks
+      width: 20%
+      font-size: .75em
+      display: inline-block
+  #check-grid
+    display: inline-block
+    width: 100%
+    margin: 0 auto
+    .checks
+      width: 50%
+      float: left
+      text-align: left
+      input
+        display: inline-block
+        width: inherit
+
+
 #map-canvas
   display: inline-block
   height: 100%
   width: 85%
+  -webkit-transition: all 400ms ease-out
 
 
 

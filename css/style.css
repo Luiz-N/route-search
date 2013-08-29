@@ -97,20 +97,55 @@ body {
   display: block;
 }
 /* line 33, ../sass/style.sass */
-#panel #input {
+#panel #fieldbox {
   font-family: Helvetica;
   width: 90%;
   display: inline-block;
   margin: 10% auto 0 auto;
 }
-/* line 35, ../sass/style.sass */
-#panel #input #range {
+/* line 38, ../sass/style.sass */
+#panel #fieldbox #transit {
+  padding: 1em 0;
+}
+/* line 40, ../sass/style.sass */
+#panel #fieldbox #transit .trans {
+  display: inline-block;
+  width: 20%;
+}
+/* line 43, ../sass/style.sass */
+#panel #fieldbox #transit span {
+  display: inline-block;
+  font-size: 0.75em;
+  width: 23%;
+}
+/* line 47, ../sass/style.sass */
+#panel #fieldbox .ticks {
+  width: 20%;
+  font-size: 0.75em;
   display: inline-block;
 }
+/* line 51, ../sass/style.sass */
+#panel #check-grid {
+  display: inline-block;
+  width: 100%;
+  margin: 0 auto;
+}
+/* line 55, ../sass/style.sass */
+#panel #check-grid .checks {
+  width: 50%;
+  float: left;
+  text-align: left;
+}
+/* line 59, ../sass/style.sass */
+#panel #check-grid .checks input {
+  display: inline-block;
+  width: inherit;
+}
 
-/* line 40, ../sass/style.sass */
+/* line 64, ../sass/style.sass */
 #map-canvas {
   display: inline-block;
   height: 100%;
   width: 85%;
+  -webkit-transition: all 400ms ease-out;
 }
