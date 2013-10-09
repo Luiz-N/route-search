@@ -160,7 +160,8 @@ function findPlaces (circles) {
   var request = {
     location: circle,
     radius: radius,
-    types: places.length == 0 ? nil : places
+    // types: places.length === 0 ? nil : places
+    types: places
   };
 
   Places.nearbySearch(request, createMarkers);
@@ -175,6 +176,7 @@ function findPlaces (circles) {
 
 function createMarkers(places) {
     // console.log(places.length);
+      if (places === null){return;}
       for (var i = 0; i < places.length; i++) {
         var place = places[i];
 
