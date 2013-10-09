@@ -48,9 +48,6 @@ $(document).ready(function() {
 
 
 
-
-
-
   $('.circle').click(function(e) {
     e.stopPropagation();
     $('.circle').removeClass('selected');
@@ -59,10 +56,6 @@ $(document).ready(function() {
     $(this).addClass('selected');
     $(this).children('span').addClass('selected');
   });
-
-
-
-
 
 
 
