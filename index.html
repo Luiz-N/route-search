@@ -7,9 +7,11 @@
 <head>
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyC53CaU_F5m8oKWEOdn-AYj8eoZWSYxx-s&sensor=false">
+      src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyC53CaU_F5m8oKWEOdn-AYj8eoZWSYxx-s&sensor=true">
     </script>
     <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/button.css" rel="stylesheet" type="text/css">
+<!-- <link href="css/lines.css" rel="stylesheet"> -->
 </head>
 <body class = "cf" id = 'body'>
   <div id ="wrapper">
@@ -18,62 +20,92 @@
       <div id="fieldbox">
         <!-- <input id="address" type="textbox" value="Chicago, IL">
         <input type="button" value="Locate" onclick="codeAddress()"> -->
-        <p>Start</p>
-        <input id="start" type="textbox" placeholder="Start" value="924 W Fullerton Chicago">
-        <p>End</p>
-        <input id="end" type="textbox" placeholder="End" value="University of Illinois at Chicago">
-      <div id="transit">
-        <input checked class = "trans" type="radio" name="group1" value=DRIVING>
-        <input class = "trans" type="radio" name="group1" value=TRANSIT>
-        <input class = "trans" type="radio" name="group1" value=WALKING>
-        <input class = "trans" type="radio" name="group1" value=BICYCLING>
-        <span>Car</span>
-        <span>Transit</span>
-        <span>Walk</span>
-        <span>Bike</span>
-      </div>
+        <!-- <p>Start</p> -->
 
-      
-        <span>Select a radius along your route to search.</span>
-        <input id ='slider' type="range" min="400" max="1600" value="800" step="400" />
+    <h2>Directions</h2>
+
+        <input id="start" class="textbox" type="textbox" placeholder="Start" value="924 W Fullerton Chicago">
+        <!-- <p>End</p> -->
+        <input id="end" class="textbox" type="textbox" placeholder="End" value="University of Illinois at Chicago">
+
+    <h2>Mode of Transit</h2>
+
+        <div id="transit" class="cf">
+            <div class="squaredOne trans"><input id="DRIVING" type="radio" name="group1" value="DRIVING" checked="checked"/><label for="DRIVING" data-content="Drive">Drive</label></div>
+            <div class="squaredOne trans"><input id="TRANSIT" type="radio" name="group1" value="TRANSIT" /><label for="TRANSIT" data-content="Bus/Sub">Transit</label></div>
+            <div class="squaredOne trans"><input id="WALKING" type="radio" name="group1" value="WALKING" /><label for="WALKING" data-content="Walk">Walk</label></div>
+            <div class="squaredOne trans"><input id="BICYCLING" type="radio" name="group1" value="BICYCLING" /><label for="BICYCLING" data-content="Bike">Walk</label></div>               
+        </div>
+
+    <h2>Select a Radius</h2>
+
+        <section id="radius">
+            <div class="circle " id="largeRadius" data-distance=1600>
+                <span id="mile">1 mile</span>
+                <div class="circle selected" id="mediumRadius" data-distance=800>
+                    <span class="selected">1/2 mile</span>
+                    <div class="circle " id="smallRadius" data-distance=400>
+                        <span>1/4 mile</span>
+                    </div>            
+                </div>
+            </div>
+        </section>
+       <!--  <span>Select a radius along your route to search.</span>
+        <input id ='slider' type="range" min="400" max="1600" value="800" step="400" /> -->
         <!-- <span class="ticks">meters</span> -->
-        <span class="ticks">400</span>
-        <span class="ticks">800</span>
-        <span class="ticks">1200</span>
-        <span class="ticks">1600</span>
-        <!-- <span class="ticks">miles</span> -->
-        <span class="ticks">.25</span>
-        <span class="ticks">.5</span>
-        <span class="ticks">.75</span>
-        <span class="ticks">1</span>
-    <div id="check-grid" class="cf">
-      <ul class="checks">
-        <li><input type="checkbox" name="place" value="bar" /><label>bar</label></li>
-        <li><input type="checkbox" name="place" value="restaurant" /><label>restaurant</label></li>
-        <li><input type="checkbox" name="place" value="cafe" /><label>cafe</label></li>
-        <li><input type="checkbox" name="place" value="atm" /><label>atm</label></li>
-        <li><input type="checkbox" name="place" value="bank" /><label>bank</label></li>
-        <li><input type="checkbox" name="place" value="liquor_store" /><label>liqour store</label></li>
-        <li><input type="checkbox" name="place" value="night_club" /><label>night club</label></li>
-        <li><input type="checkbox" name="place" value="subway_station" /><label>subway stop</label></li>
-      </ul>
-      <ul class="checks">
-        <li><input type="checkbox" name="place" value="gas_station" /><label>gas station</label></li>
-        <li><input type="checkbox" name="place" value="gym" /><label>gym</label></li>
-        <li><input type="checkbox" name="place" value="food" /><label>food</label></li>
-        <li><input type="checkbox" name="place" value="grocery_or_supermarket" /><label>grocery</label></li>
-        <li><input type="checkbox" name="place" value="convenience_store" /><label>corner store</label></li>
-        <li><input type="checkbox" name="place" value="post_office" /><label>post office</label></li>
-        <li><input type="checkbox" name="place" value="pharmacy" /><label>pharmacy</label></li>
-        <li><input type="checkbox" name="place" value="bus_station" /><label>bus stop</label></li>
-      </ul>
-    </div>
-        <input type="button" value="Get Directions" onclick="newRoute()">
+<!--             <span class="ticks">400</span>
+            <span class="ticks">800</span>
+            <span class="ticks">1200</span>
+            <span class="ticks">1600</span>
+            <span class="ticks">.25</span>
+            <span class="ticks">.5</span>
+            <span class="ticks">.75</span>
+            <span class="ticks">1</span> -->
+
+        <h2>Places</h2>
+
+
+        <div id="check-grid" class="cf">
+          <ul class="checks">
+            <!-- <li></li> -->
+            <li><div class="squaredOne"><input id="bar" type="checkbox" name="place" value="bar" /><label for="bar" data-content="bar">bar</label></div></li>
+            <li><div class="squaredOne"><input  id="restaurant" type="checkbox" name="place" value="restaurant" /><label for="restaurant" data-content = "restaurant">restaurant</label></div></li>
+            <li><div class="squaredOne"><input  id="cafe" type="checkbox" name="place" value="cafe" /><label for="cafe" data-content = "cafe">cafe</label></div></li>
+            <li><div class="squaredOne"><input  id="atm" type="checkbox" name="place" value="atm" /><label for="atm" data-content = "atm">atm</label></div></li>
+            <li><div class="squaredOne"><input  id="bank" type="checkbox" name="place" value="bank" /><label for="bank" data-content = "bank">bank</label></div></li>
+            <li><div class="squaredOne"><input  id="liquor_store" type="checkbox" name="place" value="liquor_store" /><label for="liquor_store" data-content = "liquor store">liquor store</label></div></li>
+            <li><div class="squaredOne"><input  id="night_club" type="checkbox" name="place" value="night_club" /><label for="night_club" data-content = "night club">night club</label></div></li>
+            <li><div class="squaredOne"><input  id="subway_station" type="checkbox" name="place" value="subway_station" /><label for="subway_station" data-content = "subway station">subway station</label></div></li>
+          </ul>
+
+          <ul class="checks">
+            <li><div class="squaredOne"><input  id="gas_station" type="checkbox" name="place" value="gas_station" /><label for="gas_station" data-content = "gas">gas</label></div></li>
+            <li><div class="squaredOne"><input  id="gym" type="checkbox" name="place" value="gym" /><label for="gym" data-content = "gym">gym</label></div></li>
+            <li><div class="squaredOne"><input  id="food" type="checkbox" name="place" value="food" /><label for="food" data-content = "food">food</label ></div></li>
+            <li><div class="squaredOne"><input  id="grocery" type="checkbox" name="place" value="grocery_or_supermarket" /><label for="grocery" data-content = "grocery">grocery</label></div></li>
+            <li><div class="squaredOne"><input  id="corner" type="checkbox" name="place" value="convenience_store" /><label for="corner" data-content = "corner store">corner store</label></div></li>
+            <li><div class="squaredOne"><input  id="post_office" type="checkbox" name="place" value="post_office" /><label for="post_office" data-content = "post office">post office</label></div></li>
+            <li><div class="squaredOne"><input  id="pharmacy" type="checkbox" name="place" value="pharmacy" /><label for="pharmacy" data-content = "pharmacy">pharmacy</label></div></li>
+            <li><div class="squaredOne"><input  id="bus_station" type="checkbox" name="place" value="bus_station" /><label for="bus_station" data-content = "bus stop">bus stop</label></div></li>
+          </ul>
+        </div>
+
+<!--         <input id="search" type="textbox" placeholder="Search" value=""> -->
+
+        <button type="button" value="Get Directions" onclick="newRoute()">Get Directions</button>
       </div>
     </div>
-    <div id="map-canvas"/>
-  </div>
 
+    
+    <div id="mapWrapper">  
+
+        <i class="map-top"></i>
+        <i class="map-right"></i>
+        <i class="map-bottom"></i>
+        <i class="map-left"></i>
+        <div id="map-canvas"/></div>
+        
+    </div>
 
 
 <!-- <script src="path/to/waypoints-sticky.min.js"></script> -->

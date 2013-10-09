@@ -28,7 +28,7 @@ function findCircles(steps) {
        points.push(steps[i].path[j]); 
      };
   };
-  // console.log(points);
+  console.log(points);
   //goes through all the points and finds the next one that is radius distance away
   startingPoint = points[0];
   endingPoint = points[points.length-1];
@@ -36,32 +36,33 @@ function findCircles(steps) {
   for (var i = 0; i < points.length-1; i++) {
     distance = calcDistance(finalPoints[finalPoints.length-1],points[i])
     // console.log(distance);
-    if (distance >= radius+(radius*.35)) {finalPoints.push(points[i])};
+    if (distance >= radius+(radius*.35)) {
+      finalPoints.push(points[i])
+    };
   };
   finalPoints.push(endingPoint);
+  console.log(finalPoints);
   //reorders the points to start from point A
   for (var i = finalPoints.length - 1; i >= 0; i--) {
     orderedFinalPoints.push(finalPoints[i]);
   };
   //creates and draws circles
-  createCircles(orderedFinalPoints)
+  createCircles(orderedFinalPoints);
   //function for searching place within array of circles
-  findPlaces(orderedFinalPoints)
+  // findSearchResults(orderedFinalPoints);
+  findPlaces(orderedFinalPoints);
 }
 
 function createCircles(points){
   for (var i = points.length - 1; i >= 0; i--) {
-    CircleCoordinates = points[i];
-  var lat = CircleCoordinates.ob;
-  var lng = CircleCoordinates.pb;
   
   circle = new google.maps.Circle({
-      strokeColor: '#FF0000',
+      strokeColor: 'FF4040',
       strokeOpacity: 0.2,
       strokeWeight: 1,
-      fillColor: '#FF0000',
+      fillColor: 'FF4040',
       fillOpacity: 0.1,
-      center: new google.maps.LatLng(lat, lng),
+      center: points[i],
       radius: radius
   });
     drawCircle(circle);
@@ -70,64 +71,52 @@ function createCircles(points){
 }
 
 function findPlaces (circles) {
-  // console.log(circles);
   var circle = circles.pop();
 
-  var lat = circle.ob;
-  var lon = circle.pb;
-
   var request = {
-    location: new google.maps.LatLng(lat,lon),
+    location: circle,
     radius: radius,
     types: places.length == 0 ? nil : places
   };
-  // console.log(places);
+
   Places.nearbySearch(request, createMarkers);
-  // console.log(request)
+
   if (circles.length == 0) {
     console.log("finished loading pins");
   }
   else{
-    setTimeout(function(){findPlaces(circles,radius)},350);
-    }
+    setTimeout(function(){findPlaces(circles)},350);
   }
+}
 
-function createMarkers(results, status) {
-    console.log(results.length);
-    if (status == google.maps.places.PlacesServiceStatus.OK) {
-      for (var i = 0; i < results.length; i++) {
-        var point = results[i];
+function createMarkers(places) {
+    // console.log(places.length);
+      for (var i = 0; i < places.length; i++) {
+        var place = places[i];
 
-      console.log(point);
-      var lat = point.geometry.location.ob;
-      var lon = point.geometry.location.pb;
+        var marker = new google.maps.Marker({
+          position: place.geometry.location,
+          icon: iconBase + place.types[0] + '.png'
+        });
 
-        marker = new google.maps.Marker({
-        position: new google.maps.LatLng(lat,lon),
-        icon: iconBase + point.types[0] + '.png'
-      });
+        drawMarker(marker);
+        markers.push(marker);
 
-      drawMarker(marker);
-      markers.push(marker);
-
-      // console.log(this.marker);
-      // self = this.marker
-      // pointers[i] = this.marker;
+        var context = {
+          marker: marker,
+          place: place
+        };
 
         google.maps.event.addListener(marker, 'click', function() {
-          console.log(pointers[i]);
-          console.log(point);
-          
-          Places.getDetails(point, function(result, status) {
+          Places.getDetails(this.place, function(result, status) {
             if (status != google.maps.places.PlacesServiceStatus.OK) {
-            alert(status);
-            return;
+              alert(status);
+              return;
             }
-          var infoWindow = new google.maps.InfoWindow();
-          infoWindow.setContent(result.name);
-          infoWindow.open(map, marker);
-        });
-      });
+            var infoWindow = new google.maps.InfoWindow();
+            infoWindow.setContent(result.name);
+            infoWindow.open(map, this.marker);
+          }.bind(this));
+        }.bind(context));
       }
-    }
   };

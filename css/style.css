@@ -55,97 +55,224 @@ table {
   border-spacing: 0;
 }
 
-/* line 8, ../sass/style.sass */
+/* line 10, ../sass/style.sass */
 .cf:before, .cf:after {
   content: " ";
   display: table;
 }
 
-/* line 12, ../sass/style.sass */
+/* line 14, ../sass/style.sass */
 .cf:after {
   clear: both;
 }
 
-/* line 16, ../sass/style.sass */
+/* line 18, ../sass/style.sass */
 html {
   height: 100%;
 }
 
-/* line 19, ../sass/style.sass */
+/* line 21, ../sass/style.sass */
 body {
-  background-color: #cee3f8;
+  background-color: rgba(222, 219, 207, 0.5);
   height: 100%;
   text-align: center;
+  color: #333333;
+  overflow: hidden;
+}
+/* line 28, ../sass/style.sass */
+body h2 {
+  margin-left: 0.25em;
+  font-size: 1.5em;
+  text-align: left;
+  color: rgba(255, 64, 64, 0.9);
+  padding-top: 0.25em;
+  margin-bottom: 0.25em;
 }
 
-/* line 24, ../sass/style.sass */
+/* line 36, ../sass/style.sass */
 #wrapper {
   height: 100%;
 }
 
-/* line 26, ../sass/style.sass */
+/* line 38, ../sass/style.sass */
+#mapWrapper {
+  margin-left: 290px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+/* line 44, ../sass/style.sass */
+#mapWrapper #map-canvas {
+  width: 100%;
+  display: inline-block;
+  height: 100%;
+  width: 85%;
+  -webkit-transition: all 400ms ease-out;
+}
+
+/* line 50, ../sass/style.sass */
 #panel {
-  float: left;
+  overflow-y: auto;
+  z-index: 1;
+  position: fixed;
+  left: 0;
   display: inline-block;
   height: 100%;
   width: 15%;
+  min-width: 290px;
 }
-/* line 31, ../sass/style.sass */
+/* line 59, ../sass/style.sass */
 #panel input {
   width: 100%;
   font-size: 1em;
   display: block;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  margin: 0;
+  padding: 0;
+  border: none;
 }
-/* line 35, ../sass/style.sass */
+/* line 68, ../sass/style.sass */
 #panel #fieldbox {
   font-family: Helvetica;
-  width: 90%;
+  width: 100%;
   display: inline-block;
-  margin: 10% auto 0 auto;
 }
-/* line 40, ../sass/style.sass */
+/* line 72, ../sass/style.sass */
+#panel #fieldbox .textbox {
+  width: 98%;
+  height: 1.5em;
+  margin: auto;
+  background: rgba(222, 219, 207, 0);
+  border: 2px solid rgba(255, 64, 64, 0.5);
+  color: rgba(51, 51, 51, 0.8);
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+}
+/* line 81, ../sass/style.sass */
+#panel #fieldbox .textbox:focus {
+  outline-color: #ff4040;
+  outline-width: 3px;
+}
+/* line 84, ../sass/style.sass */
 #panel #fieldbox #transit {
-  padding: 1em 0;
+  width: 100%;
 }
-/* line 42, ../sass/style.sass */
+/* line 86, ../sass/style.sass */
 #panel #fieldbox #transit .trans {
+  box-sizing: border-box;
   display: inline-block;
-  width: 20%;
+  width: 25%;
+  float: left;
+  border-right: 1px solid rgba(51, 51, 51, 0.1);
+  border-bottom: 1px solid rgba(51, 51, 51, 0.1);
 }
-/* line 45, ../sass/style.sass */
+/* line 93, ../sass/style.sass */
 #panel #fieldbox #transit span {
   display: inline-block;
   font-size: 0.75em;
   width: 23%;
 }
-/* line 49, ../sass/style.sass */
-#panel #fieldbox .ticks {
-  width: 20%;
-  font-size: 0.75em;
-  display: inline-block;
+/* line 97, ../sass/style.sass */
+#panel #fieldbox #radius {
+  position: relative;
+  height: 175px;
 }
-/* line 53, ../sass/style.sass */
+/* line 100, ../sass/style.sass */
+#panel #fieldbox #radius .circle {
+  margin: auto;
+  border-radius: 50%;
+  position: relative;
+  border: 2px dashed rgba(51, 51, 51, 0.5);
+}
+/* line 105, ../sass/style.sass */
+#panel #fieldbox #radius .circle span {
+  top: 11px;
+  position: absolute;
+  font-size: 0.9em;
+  color: rgba(51, 51, 51, 0.5);
+}
+/* line 110, ../sass/style.sass */
+#panel #fieldbox #radius .circle:hover {
+  cursor: pointer;
+}
+/* line 112, ../sass/style.sass */
+#panel #fieldbox #radius .circle.selected {
+  background: radial-gradient(ellipse at center, rgba(255, 64, 64, 0.75) 0%, rgba(255, 64, 64, 0) 100%);
+}
+/* line 114, ../sass/style.sass */
+#panel #fieldbox #radius .circle.selected span.selected {
+  color: #333333;
+}
+/* line 117, ../sass/style.sass */
+#panel #fieldbox #radius #largeRadius {
+  width: 175px;
+  height: 175px;
+}
+/* line 121, ../sass/style.sass */
+#panel #fieldbox #radius #largeRadius #mile {
+  left: 70px;
+  top: 5px;
+}
+/* line 124, ../sass/style.sass */
+#panel #fieldbox #radius #mediumRadius {
+  margin-top: 25px;
+  width: 120px;
+  height: 120px;
+}
+/* line 128, ../sass/style.sass */
+#panel #fieldbox #radius #mediumRadius span {
+  left: 40px;
+}
+/* line 130, ../sass/style.sass */
+#panel #fieldbox #radius #smallRadius {
+  margin-top: 30px;
+  width: 60px;
+  height: 60px;
+}
+/* line 134, ../sass/style.sass */
+#panel #fieldbox #radius #smallRadius span {
+  left: 20px;
+  width: 10px;
+}
+/* line 138, ../sass/style.sass */
 #panel #check-grid {
   display: inline-block;
   width: 100%;
   margin: 0 auto;
+  padding-bottom: 0.25em;
 }
-/* line 57, ../sass/style.sass */
+/* line 143, ../sass/style.sass */
+#panel #check-grid .checks:first-child {
+  border-right: 1px solid rgba(51, 51, 51, 0.1);
+}
+/* line 145, ../sass/style.sass */
 #panel #check-grid .checks {
+  box-sizing: border-box;
   width: 50%;
   float: left;
   text-align: left;
 }
-/* line 61, ../sass/style.sass */
+/* line 150, ../sass/style.sass */
+#panel #check-grid .checks .squaredOne {
+  border-bottom: 1px solid rgba(51, 51, 51, 0.1);
+}
+/* line 154, ../sass/style.sass */
 #panel #check-grid .checks input {
   display: inline-block;
-  width: inherit;
 }
-
-/* line 66, ../sass/style.sass */
-#map-canvas {
-  display: inline-block;
-  height: 100%;
-  width: 85%;
-  -webkit-transition: all 400ms ease-out;
+/* line 156, ../sass/style.sass */
+#panel button {
+  width: 98%;
+  margin: auto;
+  background: rgba(222, 219, 207, 0);
+  border: 1px solid rgba(255, 64, 64, 0.5);
+  color: #ff4040;
+  font-size: 1.5em;
+}
+/* line 163, ../sass/style.sass */
+#panel button:hover {
+  cursor: pointer;
+  box-shadow: inset 0 -4px 11px -5px rgba(255, 64, 64, 0.7);
+  border: 2px solid #ff4040;
 }

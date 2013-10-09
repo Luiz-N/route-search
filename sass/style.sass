@@ -3,7 +3,9 @@
 $red: #999
 
 
-$background: rgb(206, 227, 248)
+// $background: rgb(206, 227, 248)
+$background: rgba(222, 219, 207, .5)
+$red:        rgba(255, 64, 64, 1)
 
 .cf:before 
   content: " " /* 1 */
@@ -20,54 +22,174 @@ body
   background-color: $background
   height: 100%
   text-align: center
+  color: #333
+  overflow: hidden
 
+  h2
+    margin-left: .25em
+    font-size: 1.5em
+    text-align: left
+    color: transparentize($red, .1)
+    padding-top: .25em
+    margin-bottom: .25em
+    // border-bottom: 1px dashed $red
 #wrapper
   height: 100%
+#mapWrapper
+  margin-left: 290px
+  width: 100%
+  height: 100%
+  position: relative
+  // overflow: hidden
+  #map-canvas
+    width: 100%
+    display: inline-block
+    height: 100%
+    width: 85%
+    -webkit-transition: all 400ms ease-out
 #panel
-  float: left
+  overflow-y: auto
+  z-index: 1
+  position: fixed
+  left: 0
   display: inline-block
   height: 100%
   width: 15%
+  min-width: 290px
   input
     width: 100%
     font-size: 1em
     display: block
+    box-sizing: border-box
+    -webkit-appearance: none
+    margin: 0
+    padding: 0
+    border: none
   #fieldbox
     font-family: Helvetica
-    width: 90%
+    width: 100%
     display: inline-block
-    margin: 10% auto 0 auto
+    .textbox
+      width: 98%
+      height: 1.5em
+      margin: auto
+      background: transparentize($background, .8)
+      border: 2px solid rgba(255, 64, 64, .5)
+      color: rgba(51, 51, 51, .8)
+      font-size: 1.2em
+      margin-bottom: .5em
+      &:focus
+        outline-color: $red
+        outline-width: 3px
     #transit
-      padding: 1em 0
+      width: 100%
       .trans
+        box-sizing: border-box
         display: inline-block
-        width: 20%
+        width: 25%
+        float: left
+        border-right: 1px solid rgba(51, 51, 51, 0.1)
+        border-bottom: 1px solid rgba(51, 51, 51, 0.1)
       span
         display: inline-block
         font-size: .75em
         width: 23%
-    .ticks
-      width: 20%
-      font-size: .75em
-      display: inline-block
+    #radius
+      position: relative
+      height: 175px
+      .circle
+        margin: auto
+        border-radius: 50%
+        position: relative
+        border: 2px dashed rgba(51, 51, 51, .5)
+        span
+          top: 11px
+          position: absolute
+          font-size: .9em
+          color: rgba(51, 51, 51, .5)
+      .circle:hover
+        cursor: pointer
+      .circle.selected
+        background: radial-gradient(ellipse at center, rgba(255, 64, 64, .75) 0%,rgba(255, 64, 64, 0) 100%)
+        span.selected
+          color: rgba(51, 51, 51, 1)
+
+      #largeRadius
+        // background-color: rgba(255, 64, 64, .5)
+        width: 175px
+        height: 175px
+        #mile
+          left: 70px
+          top: 5px
+      #mediumRadius
+        margin-top: 25px
+        width: 120px
+        height: 120px
+        span
+          left: 40px
+      #smallRadius
+        margin-top: 30px
+        width: 60px
+        height: 60px
+        span
+          left: 20px
+          width: 10px
+
   #check-grid
     display: inline-block
     width: 100%
     margin: 0 auto
+    padding-bottom: .25em
+    .checks:first-child
+      border-right: 1px solid rgba(51, 51, 51, .1)
     .checks
+      box-sizing: border-box
       width: 50%
       float: left
       text-align: left
+      .squaredOne
+        border-bottom: 1px solid rgba(51, 51, 51, .1)
+      li:first-child
+        // border-top: 1px solid rgba(51, 51, 51, .1)
       input
         display: inline-block
-        width: inherit
+  button
+    width: 98%
+    margin: auto
+    background: transparentize($background, .8)
+    border: 1px solid rgba(255, 64, 64, 0.5)
+    color: $red
+    font-size: 1.5em
+    &:hover
+      cursor: pointer
+      box-shadow: inset 0 -4px 11px -5px rgba(255, 64, 64, .7)
+      border: 2px solid $red
 
 
-#map-canvas
-  display: inline-block
-  height: 100%
-  width: 85%
-  -webkit-transition: all 400ms ease-out
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
