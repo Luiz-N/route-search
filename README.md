@@ -27,6 +27,6 @@ Next potential steps:
 * Mobile version
 * Smarter algorithms for the custom icons
 * Different color scheme
-* An actualy name (suggestions welcome)
+* An actual name/domain (suggestions welcome)
 
 Pull requests are cool too.
