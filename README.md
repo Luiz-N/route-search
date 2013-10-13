@@ -19,7 +19,7 @@ Points of Interest:
 * This app is probably about 80% google apis. (Even the circles)
 * Every circle is a seperate ajax call. The delay between each circle's results is intentional to avoid hitting Google too fast. (They don't like that)
 * This was intended for short distances but it actually does work for long distances. (google will eventually start choking you though)
-
+* A maximum of only 20 results are shown per circle... (a much more expensive "radar" search would be required to get fuller results)
 
 Next potential steps:
 
