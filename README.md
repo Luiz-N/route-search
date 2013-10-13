@@ -10,7 +10,7 @@ Stack:
 * Google maps, directions, and places APIs
 
 
-The inspiration for this app came from some personal use cases I've had of wanting to see what bars/restaurants are on the way to my friends house or whereever I needed to go.
+The inspiration for this app came from some personal use cases I've had of wanting to see what bars/restaurants are on the way to my friends house or wherever I needed to go.
 There are apps that offer this kind of info at a macro-scale for roadtrips but I couldn't find anthing that can do it at a micro scale.
 Admittingly this would only be truly useful with a mobile version but that's what pull requests are for ;).
 
@@ -19,7 +19,7 @@ Points of Interest:
 * This app is probably about 80% google apis. (Even the circles)
 * Every circle is a seperate ajax call. The delay between each circle's results is intentional to avoid hitting Google too fast. (They don't like that)
 * This was intended for short distances but it actually does work for long distances. (google will eventually start choking you though)
-* A maximum of only 20 results are shown per circle... (a much more expensive "radar" search would be required to get fuller results)
+* A maximum of 20 results are shown per circle... (a much more expensive "radar" search would be required to get fuller results)
 
 Next potential steps:
 
