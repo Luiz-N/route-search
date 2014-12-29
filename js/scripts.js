@@ -134,10 +134,10 @@ function createCircles(points){
   for (var i = points.length - 1; i >= 0; i--) {
   
   circle = new google.maps.Circle({
-      strokeColor: 'FF4040',
+      strokeColor: 'red',
       strokeOpacity: 0.2,
       strokeWeight: 1,
-      fillColor: 'FF4040',
+      fillColor: 'red',
       fillOpacity: 0.1,
       center: points[i],
       radius: radius
