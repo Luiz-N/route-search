@@ -113,12 +113,11 @@ function findCircles(steps) {
   for (var i = 0; i < points.length-1; i++) {
     distance = calcDistance(finalPoints[finalPoints.length-1],points[i])
     // console.log(distance);
-    if (distance >= radius+(radius*.35)) {
+    if (distance >= radius+(radius*.5)) {
       finalPoints.push(points[i])
     };
   };
   finalPoints.push(endingPoint);
-  console.log(finalPoints);
   //reorders the points to start from point A
   for (var i = finalPoints.length - 1; i >= 0; i--) {
     orderedFinalPoints.push(finalPoints[i]);
@@ -138,7 +137,7 @@ function createCircles(points){
       strokeOpacity: 0.2,
       strokeWeight: 1,
       fillColor: 'red',
-      fillOpacity: 0.1,
+      fillOpacity: 0.05,
       center: points[i],
       radius: radius
   });
@@ -160,7 +159,7 @@ function findPlaces (circles) {
   Places.nearbySearch(request, createMarkers);
 
   if (circles.length == 0) {
-    console.log("finished loading pins");
+    // console.log("finished loading pins");
   }
   else{
     setTimeout(function(){findPlaces(circles)},350);
@@ -220,10 +219,10 @@ function refreshValues() {
 function calcDistance(point1, point2) {
   //calculates distance between two lat/lon points in miles
 
-  lat1 = point1[[Object.keys(point1)[0]]];
-  lon1 = point1[[Object.keys(point1)[1]]];
-  lat2 = point2[[Object.keys(point2)[0]]];
-  lon2 = point2[[Object.keys(point2)[1]]];
+  var lat1 = point1.lat();
+  var lon1 = point1.lng();
+  var lat2 = point2.lat();
+  var lon2 = point2.lng();
 
  var R = 3958.7558657440545; // Radius of earth in Miles 
     var dLat = toRad(lat2-lat1);

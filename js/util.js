@@ -18,10 +18,10 @@ function refreshValues() {
 function calcDistance(point1, point2) {
   //calculates distance between two lat/lon points in miles
 
-  lat1 = point1[[Object.keys(point1)[0]]];
-  lon1 = point1[[Object.keys(point1)[1]]];
-  lat2 = point2[[Object.keys(point2)[0]]];
-  lon2 = point2[[Object.keys(point2)[1]]];
+  var lat1 = point1.lat();
+  var lon1 = point1.lng();
+  var lat2 = point2.lat();
+  var lon2 = point2.lng();
 
  var R = 3958.7558657440545; // Radius of earth in Miles 
     var dLat = toRad(lat2-lat1);
